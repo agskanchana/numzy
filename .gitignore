@@ -1,0 +1,10 @@
+# secrets — contains a live API key, must never be committed
+.mcp.json
+
+# competitor reference screenshots — not part of the product, keep local only
+matific.com/
+
+# generated-image originals — already copied into web/public/images for the app;
+# these are just the raw MCP output, no need to duplicate in the repo
+# (anchored to root only — must NOT match web/public/images, which the app needs)
+/images/
