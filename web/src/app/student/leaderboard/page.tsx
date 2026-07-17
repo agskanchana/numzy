@@ -43,7 +43,7 @@ export default function LeaderboardPage() {
           ))}
         </div>
 
-        <div className="rounded-3xl bg-white shadow-xl overflow-hidden">
+        <div className="rounded-3xl bg-white text-ink shadow-xl overflow-hidden">
           {rows.map((row, i) => (
             <div
               key={row.name}

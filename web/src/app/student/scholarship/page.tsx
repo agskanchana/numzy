@@ -53,7 +53,7 @@ export default function ScholarshipPage() {
         </div>
 
         {/* Competencies */}
-        <div className="rounded-3xl bg-white shadow-xl p-5">
+        <div className="rounded-3xl bg-white text-ink shadow-xl p-5">
           <h2 className="font-display text-xl font-semibold mb-3">
             Competencies
           </h2>
@@ -91,7 +91,7 @@ export default function ScholarshipPage() {
           {sets.map((s) => (
             <div
               key={s.id}
-              className="rounded-2xl bg-white shadow p-4 flex items-center gap-3"
+              className="rounded-2xl bg-white text-ink shadow p-4 flex items-center gap-3"
             >
               <span className="text-2xl">{s.done ? "✅" : "📝"}</span>
               <div className="flex-1">

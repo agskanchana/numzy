@@ -17,7 +17,7 @@ export default function BadgesPage() {
         </MascotBar>
 
         {/* Rank journey */}
-        <div className="rounded-3xl bg-white shadow-xl p-5">
+        <div className="rounded-3xl bg-white text-ink shadow-xl p-5">
           <h2 className="font-display text-xl font-semibold mb-4">
             Rank journey
           </h2>
@@ -64,7 +64,7 @@ export default function BadgesPage() {
           {BADGES.map((b) => (
             <div
               key={b.id}
-              className={`rounded-2xl p-4 text-center shadow transition-all ${
+              className={`rounded-2xl p-4 text-center text-ink shadow transition-all ${
                 b.earned
                   ? "bg-white hover:shadow-lg hover:-translate-y-0.5"
                   : "bg-slate-50"

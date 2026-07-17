@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import StudentShell from "@/components/StudentShell";
@@ -155,7 +154,7 @@ function PracticeSession() {
 
   if (!questions || !q) {
     return (
-      <div className="min-h-[60vh] grid place-items-center font-display text-xl opacity-60">
+      <div className="min-h-[60vh] grid place-items-center font-display text-xl text-white/70 bg-doodle-teal">
         Loading questions…
       </div>
     );
@@ -165,8 +164,9 @@ function PracticeSession() {
   if (phase === "lesson") {
     const sample = questions[0];
     return (
+      <div className="min-h-[calc(100vh-56px)] bg-doodle-teal">
       <div className="mx-auto max-w-2xl px-4 py-8 animate-rise">
-        <div className="rounded-3xl bg-white shadow-xl p-6 sm:p-8">
+        <div className="card-pop rounded-3xl bg-white text-ink p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-4xl">{topic.icon}</span>
             <div>
@@ -213,50 +213,120 @@ function PracticeSession() {
           </div>
         </div>
       </div>
+      </div>
     );
   }
 
   /* ---------------- quiz ---------------- */
   const timerPct = (timeLeft / QUESTION_SECONDS) * 100;
+  const chilis = Math.min(5, Math.max(1, Math.ceil(level / 2.5)));
 
   return (
-    <div className="relative min-h-[calc(100vh-56px)]">
-      <Image
-        src="/images/practice-bg.jpg"
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover opacity-70"
-        priority
-      />
-      <div className="relative mx-auto max-w-2xl px-4 py-6">
-        {/* progress + XP */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex gap-1.5">
-            {questions.map((_, i) => (
-              <span
-                key={i}
-                className={`size-3 rounded-full ${
-                  i < idx
-                    ? "bg-lagoon"
-                    : i === idx
-                      ? "bg-brand ring-2 ring-brand/40"
-                      : "bg-white/80"
-                }`}
-              />
-            ))}
+    <div className="relative min-h-[calc(100vh-56px)] bg-doodle-teal">
+      <div className="relative mx-auto max-w-6xl px-4 py-6 flex items-start gap-5">
+        {/* question rail */}
+        <aside className="hidden md:block w-44 shrink-0 rounded-2xl bg-white/95 text-ink shadow-xl overflow-hidden">
+          <div className="px-3 py-2.5 border-b border-slate-200 bg-slate-50">
+            <div className="text-[10px] font-extrabold uppercase tracking-wide opacity-50">
+              Proficiency
+            </div>
+            <div className="flex items-center gap-2 mt-1">
+              <div className="flex-1 h-2 rounded-full bg-slate-200 overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-lagoon transition-all"
+                  style={{ width: `${(correctCount / SESSION_LENGTH) * 100}%` }}
+                />
+              </div>
+              <span className="text-xs font-extrabold">
+                {correctCount}/{SESSION_LENGTH}
+              </span>
+            </div>
           </div>
-          <span className="text-sm font-bold bg-white/90 rounded-full px-3 py-1 shadow">
-            {t("question")} {idx + 1} / {SESSION_LENGTH}
-          </span>
-          <span className="ml-auto text-sm font-extrabold bg-sunny/95 rounded-full px-3 py-1 shadow">
-            ⭐ +{xp} XP
-          </span>
-        </div>
+          <ol>
+            {questions.map((_, i) => (
+              <li
+                key={i}
+                className={`flex items-center gap-2 px-3 py-2 border-b border-slate-100 text-sm font-bold ${
+                  i === idx ? "bg-orange-50" : ""
+                }`}
+              >
+                <span
+                  className={`grid place-items-center size-5 rounded-full text-[10px] font-extrabold ${
+                    i < idx
+                      ? "bg-lagoon text-white"
+                      : i === idx
+                        ? "bg-brand text-white"
+                        : "bg-slate-200 text-slate-500"
+                  }`}
+                >
+                  {i < idx ? "✓" : i + 1}
+                </span>
+                <span className={i === idx ? "text-brand-dark" : "opacity-70"}>
+                  {t("question")} {i + 1}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </aside>
 
-        <div
-          className={`rounded-3xl bg-white/95 shadow-xl p-6 sm:p-8 ${feedback === "wrong" ? "animate-shake" : ""}`}
-        >
+        {/* notebook */}
+        <div className="flex-1 min-w-0 max-w-2xl mx-auto">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="hidden sm:flex gap-1.5">
+              {questions.map((_, i) => (
+                <span
+                  key={i}
+                  className={`size-3 rounded-full ${
+                    i < idx
+                      ? "bg-white"
+                      : i === idx
+                        ? "bg-brand ring-2 ring-white/60"
+                        : "bg-white/40"
+                  }`}
+                />
+              ))}
+            </div>
+            <span className="text-sm font-bold bg-white/90 text-ink rounded-full px-3 py-1 shadow">
+              {t("question")} {idx + 1} / {SESSION_LENGTH}
+            </span>
+            <span className="ml-auto text-sm font-extrabold bg-sunny text-amber-900 rounded-full px-3 py-1 shadow">
+              ⭐ +{xp} XP
+            </span>
+          </div>
+
+          <div
+            className={`relative rounded-[2rem] bg-gradient-to-b from-amber-300 to-amber-400 p-2.5 pl-9 shadow-2xl ${feedback === "wrong" ? "animate-shake" : ""}`}
+          >
+            {/* spiral binding */}
+            <div className="absolute left-1.5 top-8 bottom-8 flex flex-col justify-between">
+              {Array.from({ length: 9 }).map((_, i) => (
+                <span
+                  key={i}
+                  className="block w-8 h-3.5 rounded-full bg-slate-100 border-2 border-slate-400/60 shadow-inner"
+                />
+              ))}
+            </div>
+
+            <div className="rounded-3xl bg-white text-ink p-5 sm:p-7">
+              {/* sticker header */}
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <span className="title-bubble text-2xl font-semibold text-brand -rotate-2 inline-block bg-white px-2 rounded-xl shadow-sm ring-1 ring-orange-100">
+                  {t("question")}
+                </span>
+                <span className="grid place-items-center min-w-9 h-9 px-2 rounded-full bg-lagoon text-white font-display text-xl font-semibold shadow">
+                  {idx + 1}
+                </span>
+              </div>
+              <div className="text-center text-xs font-bold text-sky-700 mb-4">
+                {topic.name} · {t("level")} {level} ·{" "}
+                <span title={`Difficulty ${chilis}/5`} className="tracking-tighter">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} className={i < chilis ? "" : "opacity-25 grayscale"}>
+                      🌶️
+                    </span>
+                  ))}
+                </span>
+              </div>
           {/* timer bar (hideable in settings — accessibility §3.10) */}
           <div className="h-2.5 rounded-full bg-slate-200 overflow-hidden mb-6">
             <div
@@ -367,7 +437,27 @@ function PracticeSession() {
                 </div>
               </div>
             ))}
+            </div>
+          </div>
         </div>
+
+        {/* tool rail (decorative for the prototype) */}
+        <aside className="hidden xl:flex flex-col gap-3 shrink-0">
+          {[
+            ["✏️", "Working pad"],
+            ["📏", "Ruler"],
+            ["🧮", "Counting frame"],
+            ["🎨", "Draw a diagram"],
+          ].map(([icon, label]) => (
+            <button
+              key={label}
+              title={`${label} — coming soon`}
+              className="grid place-items-center size-12 rounded-full bg-sunny text-xl shadow-lg hover:scale-110 transition-transform"
+            >
+              {icon}
+            </button>
+          ))}
+        </aside>
       </div>
     </div>
   );

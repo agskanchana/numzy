@@ -81,6 +81,61 @@ body {
   font-family: var(--font-body);
 }
 
+/* ------------------------------------------------------------------ */
+/* Numzy v2 chrome — KooBits-inspired "lagoon night" student shell     */
+/* ------------------------------------------------------------------ */
+
+/* Faint floating math doodles, used on dark backgrounds */
+.bg-night {
+  background-color: #0b3644;
+  background-image:
+    radial-gradient(
+      ellipse 130% 52% at 50% 120%,
+      rgb(13 148 136 / 0.5),
+      transparent 62%
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg stroke='rgba(255,255,255,0.06)' stroke-width='7' stroke-linecap='round' fill='none'%3E%3Cpath d='M36 48h30M51 33v30'/%3E%3Cpath d='M170 70h34'/%3E%3Cpath d='M74 176l24 24M98 176l-24 24'/%3E%3Cpath d='M182 196h40'/%3E%3Ccircle cx='202' cy='180' r='5' fill='rgba(255,255,255,0.06)' stroke='none'/%3E%3Ccircle cx='202' cy='212' r='5' fill='rgba(255,255,255,0.06)' stroke='none'/%3E%3Ccircle cx='140' cy='120' r='12'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(180deg, #0a2e3d 0%, #0e4556 55%, #0b3644 100%);
+}
+
+/* Teal doodle wallpaper for the question player (trophies-and-stars feel) */
+.bg-doodle-teal {
+  background-color: var(--color-lagoon-dark);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg stroke='rgba(255,255,255,0.08)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M48 36l7 14 15 2-11 11 3 15-14-7-14 7 3-15-11-11 15-2z'/%3E%3Cpath d='M150 150c0-10 8-18 18-18s18 8 18 18-8 18-18 18h-4l-6 10-4-12c-3-4-4-9-4-16z' transform='rotate(8 168 158)'/%3E%3Cpath d='M170 40h26M183 27v26'/%3E%3Cpath d='M40 170l20 20M60 170l-20 20'/%3E%3Cpath d='M110 210h30'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Chunky card with a "lip" — the KooBits floating-card look */
+.card-pop {
+  border-radius: 1.5rem;
+  box-shadow:
+    0 6px 0 rgb(0 0 0 / 0.14),
+    0 20px 40px -18px rgb(0 0 0 / 0.45);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+}
+.card-pop:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 9px 0 rgb(0 0 0 / 0.14),
+    0 26px 48px -18px rgb(0 0 0 / 0.5);
+}
+
+/* Bubbly display headings on art/dark backgrounds */
+.title-bubble {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  text-shadow: 0 3px 0 rgb(0 0 0 / 0.18);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Kid-friendly chunky button */
 .btn-chunky {
   font-family: var(--font-display);

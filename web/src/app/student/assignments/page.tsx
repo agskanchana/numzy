@@ -18,7 +18,7 @@ export default function AssignmentsPage() {
           {ASSIGNMENTS.map((a) => (
             <div
               key={a.id}
-              className={`rounded-2xl shadow p-4 flex items-center gap-4 ${
+              className={`rounded-2xl text-ink shadow p-4 flex items-center gap-4 ${
                 a.done ? "bg-slate-50 opacity-80" : "bg-white"
               }`}
             >

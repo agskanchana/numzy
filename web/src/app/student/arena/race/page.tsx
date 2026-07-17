@@ -127,7 +127,7 @@ export default function ArenaRace() {
 
         <div className="relative mx-auto max-w-3xl px-4 py-6 flex flex-col gap-4">
           {/* lanes */}
-          <div className="rounded-3xl bg-white/95 shadow-xl p-5">
+          <div className="rounded-3xl bg-white/95 text-ink shadow-xl p-5">
             <h1 className="font-display text-xl font-semibold mb-3">
               🏰 Class race · Times Tables · same 10 questions for everyone
             </h1>
@@ -163,7 +163,7 @@ export default function ArenaRace() {
 
           {/* question card / countdown / result */}
           {countdown > 0 && (
-            <div className="rounded-3xl bg-white/95 shadow-xl p-10 text-center">
+            <div className="rounded-3xl bg-white/95 text-ink shadow-xl p-10 text-center">
               <div className="font-display text-7xl font-bold text-brand animate-pop" key={countdown}>
                 {countdown}
               </div>
@@ -173,7 +173,7 @@ export default function ArenaRace() {
 
           {countdown <= 0 && !finished && q && (
             <div
-              className={`rounded-3xl bg-white/95 shadow-xl p-6 sm:p-8 ${wrongFlash ? "animate-shake ring-4 ring-red-300" : ""}`}
+              className={`rounded-3xl bg-white/95 text-ink shadow-xl p-6 sm:p-8 ${wrongFlash ? "animate-shake ring-4 ring-red-300" : ""}`}
             >
               <div className="font-display text-5xl font-semibold text-center mb-6">
                 {q.prompt}
@@ -193,7 +193,7 @@ export default function ArenaRace() {
           )}
 
           {finished && (
-            <div className="rounded-3xl bg-white/95 shadow-xl p-8 text-center animate-pop">
+            <div className="rounded-3xl bg-white/95 text-ink shadow-xl p-8 text-center animate-pop">
               <div className="text-5xl mb-2">
                 {myPlace === 1 ? "🏆" : myPlace === 2 ? "🥈" : myPlace === 3 ? "🥉" : "🎽"}
               </div>
@@ -239,7 +239,7 @@ export default function ArenaRace() {
                   href="/student"
                   className="btn-chunky bg-brand text-white px-6 py-3"
                 >
-                  Island 🏝️
+                  Home 🏠
                 </Link>
               </div>
             </div>

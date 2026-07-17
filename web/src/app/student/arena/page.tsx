@@ -69,7 +69,7 @@ export default function ArenaLobby() {
         </div>
 
         {/* scheduled races */}
-        <div className="rounded-3xl bg-white shadow-xl p-5">
+        <div className="rounded-3xl bg-white text-ink shadow-xl p-5">
           <h2 className="font-display text-xl font-semibold mb-3">
             Scheduled races
           </h2>

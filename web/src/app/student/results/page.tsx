@@ -56,7 +56,7 @@ export default function ResultsPage() {
   return (
     <StudentShell>
       <div className="mx-auto max-w-xl px-4 py-8 animate-rise">
-        <div className="rounded-3xl bg-white shadow-xl p-8 text-center relative overflow-hidden">
+        <div className="rounded-3xl bg-white text-ink shadow-xl p-8 text-center relative overflow-hidden">
           <div className="text-5xl mb-1 select-none" aria-hidden>
             {result.perfect ? "🎉🎊🎉" : "🎈"}
           </div>
@@ -129,7 +129,7 @@ export default function ResultsPage() {
               href="/student"
               className="btn-chunky bg-brand text-white px-6 py-3"
             >
-              Island 🏝️
+              {t("home")} 🏠
             </Link>
           </div>
 

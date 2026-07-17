@@ -43,6 +43,21 @@ const STRINGS: Record<string, Record<Lang, string>> = {
   results: { en: "Results", si: "ප්‍රතිඵල", ta: "முடிவுகள்" },
   weeklyQuest: { en: "Weekly quest", si: "සතියේ අභියෝගය", ta: "வார சவால்" },
   minutes: { en: "minutes", si: "මිනිත්තු", ta: "நிமிடங்கள்" },
+  home: { en: "Home", si: "මුල් පිටුව", ta: "முகப்பு" },
+  dailyQuest: { en: "Daily Quest", si: "දිනපතා අභියෝගය", ta: "தினசரி சவால்" },
+  missions: { en: "Missions", si: "මෙහෙයුම්", ta: "பணிகள்" },
+  papers: { en: "Model Papers", si: "ආදර්ශ ප්‍රශ්න පත්‍ර", ta: "மாதிரி வினாத்தாள்கள்" },
+  funZone: { en: "Fun Zone", si: "විනෝද කලාපය", ta: "மகிழ்ச்சி மண்டலம்" },
+  awards: { en: "Awards", si: "සම්මාන", ta: "விருதுகள்" },
+  progress: { en: "My progress", si: "මගේ ප්‍රගතිය", ta: "என் முன்னேற்றம்" },
+  start: { en: "Start", si: "පටන් ගන්න", ta: "தொடங்கு" },
+  gems: { en: "Gems", si: "මැණික්", ta: "மணிகள்" },
+  duel: { en: "Class Duel", si: "පන්ති තරඟය", ta: "வகுப்பு போட்டி" },
+  brainGames: { en: "Brain Games", si: "මොළ ක්‍රීඩා", ta: "மூளை விளையாட்டுகள்" },
+  storyTrail: { en: "Story Trail", si: "කතා මාවත", ta: "கதைப் பாதை" },
+  myBuddy: { en: "My Buddy", si: "මගේ මිතුරා", ta: "என் நண்பன்" },
+  level: { en: "Level", si: "මට්ටම", ta: "நிலை" },
+  lessons: { en: "Lessons", si: "පාඩම්", ta: "பாடங்கள்" },
 };
 
 type Ctx = {
