@@ -635,23 +635,57 @@ export const CONTINUE_LESSON = {
 };
 
 /* ------------------------------------------------------------------ */
-/* Buddy avatar                                                        */
+/* The Trunk Club — pet elephant dress-up                              */
 /* ------------------------------------------------------------------ */
 
-export const BUDDY = {
-  colors: ["#4fa8a0", "#8ea7e0", "#f0a35e", "#9fc86a", "#e88fb4", "#b7a4e8", "#f2ce5a", "#9db3bd"],
-  accessories: [
-    { id: "scarf", name: "Explorer scarf", emoji: "🧣" },
-    { id: "cap", name: "Cricket cap", emoji: "🧢" },
-    { id: "glasses", name: "Smart glasses", emoji: "👓" },
-    { id: "party", name: "Party hat", emoji: "🥳" },
-    { id: "bow", name: "Bow tie", emoji: "🎀" },
-    { id: "headphones", name: "Headphones", emoji: "🎧" },
-    { id: "crown", name: "Star crown", emoji: "👑" },
-    { id: "flower", name: "Temple flower", emoji: "🌺" },
-  ],
-  adjectives: ["Adventurous", "Brainy", "Cheerful", "Speedy", "Mighty", "Curious"],
-};
+export interface BuddyCostume {
+  id: string;
+  name: string;
+  img: string; // aligned transparent PNG, produced by scripts/buddy-key.mjs
+  cost: number; // gems to unlock; 0 = free
+}
+
+export const BUDDY_COSTUMES: BuddyCostume[] = [
+  { id: "me", name: "Just Me", img: "/images/buddy/base.png", cost: 0 },
+  { id: "explorer", name: "Explorer", img: "/images/buddy/explorer.png", cost: 0 },
+  { id: "cricket", name: "Cricket Star", img: "/images/buddy/cricket.png", cost: 3 },
+  { id: "party", name: "Party Pal", img: "/images/buddy/party.png", cost: 3 },
+  { id: "wizard", name: "Math Wizard", img: "/images/buddy/wizard.png", cost: 5 },
+  { id: "super", name: "Superhero", img: "/images/buddy/super.png", cost: 5 },
+  { id: "dancer", name: "Kandyan Dancer", img: "/images/buddy/dancer.png", cost: 8 },
+  { id: "royal", name: "Royalty", img: "/images/buddy/royal.png", cost: 8 },
+  { id: "astro", name: "Space Cadet", img: "/images/buddy/astro.png", cost: 10 },
+];
+
+export interface BuddyScene {
+  id: string;
+  name: string;
+  className: string; // stage backdrop — Tailwind literals so JIT picks them up
+  decor: [string, string, string, string]; // corner emoji, [0] doubles as the picker icon
+}
+
+export const BUDDY_SCENES: BuddyScene[] = [
+  { id: "lagoon", name: "Lagoon", className: "bg-doodle-teal", decor: ["🫧", "🐠", "⭐", "🌊"] },
+  { id: "meadow", name: "Meadow", className: "bg-gradient-to-b from-lime-300 to-emerald-500", decor: ["🦋", "☀️", "🌼", "🍃"] },
+  { id: "beach", name: "Beach", className: "bg-gradient-to-b from-sky-300 via-sky-200 to-amber-200", decor: ["🌴", "⛱️", "🐚", "🦀"] },
+  { id: "party", name: "Party", className: "bg-gradient-to-b from-pink-400 to-fuchsia-600", decor: ["🎈", "🎊", "🎉", "🎂"] },
+  { id: "space", name: "Space", className: "bg-gradient-to-b from-indigo-950 to-purple-900", decor: ["🪐", "✨", "🌟", "🌙"] },
+  { id: "night", name: "Starry Night", className: "bg-night", decor: ["🌙", "⭐", "✨", "🦉"] },
+];
+
+/** Starter names for the pet — the 🎲 shuffle pool. */
+export const BUDDY_NAMES = [
+  "Pittu",
+  "Kiri",
+  "Poddi",
+  "Tuski",
+  "Mango",
+  "Bubbles",
+  "Laddu",
+  "Chooti",
+  "Sudu",
+  "Kotta",
+];
 
 export const RANK_TIERS = ["Beginner", "Bronze", "Silver", "Gold", "Numzy Star"];
 export const RANK_THRESHOLDS = [0, 2500, 8000, 20000, 50000];

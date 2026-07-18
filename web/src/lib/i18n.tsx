@@ -56,6 +56,7 @@ const STRINGS: Record<string, Record<Lang, string>> = {
   brainGames: { en: "Brain Games", si: "මොළ ක්‍රීඩා", ta: "மூளை விளையாட்டுகள்" },
   storyTrail: { en: "Story Trail", si: "කතා මාවත", ta: "கதைப் பாதை" },
   myBuddy: { en: "My Buddy", si: "මගේ මිතුරා", ta: "என் நண்பன்" },
+  trunkClub: { en: "Trunk Club", si: "නුඹේ අලියා", ta: "யானை நண்பன்" },
   level: { en: "Level", si: "මට්ටම", ta: "நிலை" },
   lessons: { en: "Lessons", si: "පාඩම්", ta: "பாடங்கள்" },
 };
